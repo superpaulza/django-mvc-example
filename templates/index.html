@@ -1,0 +1,34 @@
+<!-- html:5 -->
+{% extends "layouts/base.html" %}
+
+{% block title %} Hello World! {% endblock %}
+
+{% block content %}
+
+<!--- Send parameter -->
+<h1> Hello I'm index page! </h1>
+
+<h2>{{ id }}</h2>
+<h2>{{ name }}</h2>
+<h2>{{ email }}</h2>
+
+<!--- if-else --->
+{% if id == '001' and name == 'Somchai' %}
+<h2>access ok!</h2>
+    {% else %}
+    <h2>error</h2>
+{% endif %}
+
+<!--- loop --->
+<ul>
+{% for x in activities %}
+    <li>{{ x }}</li>
+{% endfor %}
+</ul>
+
+<!--- link ref --->
+<a href="{% url 'myapp:index' %}">Goto index</a><br>
+<a href="{% url 'myapp:hello' %}">Goto hello</a><br>
+<a href="{% url 'myapp:article' year=2020 slag='hello-world' %}">Goto article</a><br>
+
+{% endblock %}

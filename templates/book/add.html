@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Book Add {% endblock %}
+
+
+{% block content %}
+<form method="post">
+{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Book</button>
+</form>
+
+
+{% endblock %}
